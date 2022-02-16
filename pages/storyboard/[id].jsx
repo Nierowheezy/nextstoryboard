@@ -3,9 +3,9 @@ export const getStaticPaths = async () => {
   const data = await res.json();
 
   // map data to an array of path objects with params (id)
-  const paths = data.map(ninja => {
+  const paths = data.map(users => {
     return {
-      params: { id: ninja.id.toString() }
+      params: { id: users.id.toString() }
     }
   })
 
@@ -21,17 +21,17 @@ export const getStaticProps = async (context) => {
   const data = await res.json();
 
   return {
-    props: { ninja: data }
+    props: { data }
   }
 }
 
-const Details = ({ ninja }) => {
+const Details = ({ data }) => {
   return (
     <div>
-      <h1>{ ninja.name }</h1>
-      <p>{ ninja.email }</p>
-      <p>{ ninja.website }</p>
-      <p>{ ninja.address.city }</p>
+      <h1>{ data.name }</h1>
+      <p>{ data.email }</p>
+      <p>{ data.website }</p>
+      <p>{ data.address.city }</p>
     </div>
   );
 }
