@@ -13,12 +13,12 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
-  useColorMode,
+  // useColorMode,
   Center,
   Text,
   HStack
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon, BellIcon, TriangleDownIcon } from "@chakra-ui/icons";
+import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
@@ -36,7 +36,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function Nav() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -50,9 +50,9 @@ export default function Nav() {
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
-              <Button onClick={toggleColorMode}>
+              {/* <Button onClick={toggleColorMode}>
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-              </Button>
+              </Button> */}
 
               <HStack>
 
@@ -74,7 +74,7 @@ export default function Nav() {
                 </MenuButton>
                 <HStack>
                   <Text>Adelowo l...</Text>
-                  <TriangleDownIcon />
+                  <ChevronDownIcon />
                 </HStack>
                 <MenuList alignItems={"center"}>
                   <br />
